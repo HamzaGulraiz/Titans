@@ -15,6 +15,9 @@ const colors = {
   RED_BUTTON: '#DD4B4B',
   GREY_BUTTON: '#777777',
   DIVIDER_COLOR: '#FFFFFF',
+  DOTACTIVE: '#777777',
+  DOTINACTIVE: '#252E35',
+  TRANSPARENT: 'transparent',
 };
 
 export default colors;

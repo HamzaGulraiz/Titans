@@ -1,9 +1,8 @@
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, StatusBar, ImageBackground} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import colors from '../../assets/colors/colors';
-import {getData} from '../../asyncStorage/AsyncStorage';
-// import {useSelector} from 'react-redux';
-import {useTypedSelector} from '../../redux/Store';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import images from '../../assets/images/images';
 
 type CustomBackgroundProps = {
   children: JSX.Element;
@@ -12,36 +11,15 @@ type CustomBackgroundProps = {
 const STYLES = ['default', 'light-content', 'dark-content'] as const;
 
 const CustomBackground: React.FC<CustomBackgroundProps> = ({children}) => {
-  // const THEME = useTypedSelector((state) => state.app.theme);
-  const [data, setData] = useState<string | undefined>(undefined);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const value = await getData({storageKey: 'theme'});
-
-      if (typeof value === 'string') {
-        setData(value);
-        // console.log(value);
-      } else {
-        // Handle the case when value is void or undefined
-        console.log('Error occurred or value is undefined');
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
-    <View
-      style={{
-        ...styles.container,
-        // backgroundColor:THEME ==='Dark' ? colors.darkTheme : colors.lightTheme,
-      }}>
-      <StatusBar
-      // backgroundColor={THEME ==='Dark' ? colors.darkTheme : colors.lightTheme}
-      // barStyle={THEME ==='Dark'? STYLES[1] : STYLES[2]}
-      />
-      {children}
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={colors.BACKGROUND} barStyle={STYLES[0]} />
+      <ImageBackground
+        source={images.SCREEN_BACKGROUND}
+        style={styles.background}>
+        {children}
+      </ImageBackground>
+    </SafeAreaView>
   );
 };
 
@@ -50,5 +28,11 @@ export default CustomBackground;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  background: {
+    flex: 1,
+    // resizeMode: 'cover',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
 });
