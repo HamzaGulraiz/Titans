@@ -1,0 +1,10 @@
+export const SPLASH_SCREEN = 'SplashScreen';
+export const GET_STARTED = 'GetStarted';
+export const MY_TABS = 'MyTabs';
+export const CONTACTS = 'Contacts';
+export const CHATS = 'Chats';
+export const MORE = 'More';
+export const APPEREANCE = 'Appereance';
+export const PHONE_NUMBER = 'PhoneNumber';
+export const VERIFICATION_CODE = 'VerificationCode';
+export const PROFILE = 'Profile';
