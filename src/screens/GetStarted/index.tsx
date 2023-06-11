@@ -18,6 +18,7 @@ import colors from '../../assets/colors/colors';
 import images from '../../assets/images/images';
 import CustomBackground from '../../components/Background/Background';
 import CustomButton from '../../components/Button/Button';
+import {AUTH} from '../../constants/Navigator';
 
 type NavigationProps = {
   navigate(APPEREANCE: string): unknown;
@@ -64,7 +65,7 @@ const GetStarted = () => {
       });
       setId(id + 1);
     } else {
-      console.log('greater');
+      navigation.navigate(AUTH);
     }
   };
 
@@ -73,7 +74,7 @@ const GetStarted = () => {
       <View>
         <View style={styles.imageView}>
           <Image
-            resizeMode="cover"
+            resizeMode="contain"
             source={detail.images}
             style={styles.image}
           />
@@ -102,6 +103,7 @@ const GetStarted = () => {
           title="Next"
           onPress={handlePress}
           height={hp(7.4)}
+          width={wp(43.1)}
           backgroundColor={colors.GREEN_BUTTON}
           marginHorizontal={wp(28.2)}
         />
