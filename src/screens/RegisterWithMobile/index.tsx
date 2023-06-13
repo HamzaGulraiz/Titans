@@ -25,6 +25,7 @@ import {VERIFICATION_CODE} from '../../constants/Navigator';
 type NavigationProps = {
   navigate(APPEREANCE: string): unknown;
   navigation: string;
+  goBack: any;
 };
 
 const RegisterWithMobile = () => {
@@ -158,6 +159,9 @@ const RegisterWithMobile = () => {
       <>
         <CustomHeader
           leftIcon={icons.BACKARROW}
+          onPressLeftIcon={() => {
+            navigation.goBack();
+          }}
           title="Sign Up"
           marginBottom={hp(4)}
         />

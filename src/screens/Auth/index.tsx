@@ -24,6 +24,7 @@ import SignUp from '../../components/Form/SignUp/SignUp';
 type NavigationProps = {
   navigate(APPEREANCE: string): unknown;
   navigation: string;
+  goBack: any;
 };
 
 const Auth = () => {
@@ -33,7 +34,13 @@ const Auth = () => {
   return (
     <CustomBackground>
       <View>
-        <CustomHeader leftIcon={icons.CROSS} marginBottom={hp(4)} />
+        <CustomHeader
+          leftIcon={icons.CROSS}
+          onPressLeftIcon={() => {
+            navigation.goBack();
+          }}
+          marginBottom={hp(4)}
+        />
         <CustomTopTabNavigator setFormButton={setForm} formButton={form} />
 
         {form === 'Signin' ? <SignIn /> : <SignUp />}

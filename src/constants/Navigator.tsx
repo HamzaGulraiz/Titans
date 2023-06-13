@@ -6,3 +6,4 @@ export const SIGN_UP = 'SignUp';
 export const REGISTER_WITH_MOBILE = 'RegisterWithMobile';
 export const VERIFICATION_CODE = 'VerificationCode';
 export const ACCOUNT_CREATED = 'AccountCreated';
+export const HOME = 'Home';

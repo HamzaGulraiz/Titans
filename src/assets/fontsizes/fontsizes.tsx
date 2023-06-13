@@ -11,7 +11,7 @@ const fontsizes = {
   // px_16: wp(4.2), //16px
   px_14: wp(3.38), // 14px
   // px_13: wp(3.3), // 13px
-  // px_12: wp(3.2), // 12px
+  px_12: wp(2.8), // 12px
   // px_11: wp(2.9), // 11px
   // px_10: wp(2.6), //10px
   // px_8: wp(2), //8px

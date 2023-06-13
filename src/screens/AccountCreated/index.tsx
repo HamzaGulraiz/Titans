@@ -17,6 +17,7 @@ import {useNavigation} from '@react-navigation/native';
 import images from '../../assets/images/images';
 import CustomButton from '../../components/Button/Button';
 import colors from '../../assets/colors/colors';
+import {HOME} from '../../constants/Navigator';
 
 type NavigationProps = {
   navigate(APPEREANCE: string): unknown;
@@ -47,7 +48,9 @@ const AccountCreated = () => {
         width={wp(88.4)}
         marginHorizontal={wp(5.7)}
         backgroundColor={colors.GREEN_BUTTON}
-        onPress={() => {}}
+        onPress={() => {
+          navigation.navigate(HOME);
+        }}
         marginBottom={hp(2.2)}
       />
     </ImageBackground>

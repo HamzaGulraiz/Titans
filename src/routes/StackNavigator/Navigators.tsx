@@ -4,6 +4,7 @@ import {
   ACCOUNT_CREATED,
   AUTH,
   GET_STARTED,
+  HOME,
   REGISTER_WITH_MOBILE,
   SIGN_IN,
   SIGN_UP,
@@ -16,6 +17,7 @@ import Auth from '../../screens/Auth';
 import RegisterWithMobile from '../../screens/RegisterWithMobile';
 import Verification from '../../screens/Verification';
 import AccountCreated from '../../screens/AccountCreated';
+import Home from '../../screens/Home';
 
 export type RootStackParams = {
   SplashScreen: any;
@@ -24,6 +26,7 @@ export type RootStackParams = {
   RegisterWithMobile: any;
   VerificationCode: any;
   AccountCreated: any;
+  Home: any;
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -39,6 +42,7 @@ const StackNavigator = () => {
       />
       <Stack.Screen name={VERIFICATION_CODE} component={Verification} />
       <Stack.Screen name={ACCOUNT_CREATED} component={AccountCreated} />
+      <Stack.Screen name={HOME} component={Home} />
     </Stack.Navigator>
   );
 };

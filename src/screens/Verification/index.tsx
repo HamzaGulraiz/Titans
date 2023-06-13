@@ -25,6 +25,7 @@ import {ACCOUNT_CREATED} from '../../constants/Navigator';
 type NavigationProps = {
   navigate(APPEREANCE: string): unknown;
   navigation: string;
+  goBack: any;
 };
 
 interface HandleTextChangeProps {
@@ -77,9 +78,10 @@ const Verification = () => {
       }, 1000);
     } else {
       setCodeError('Required');
+      setIsLoaded(false);
       setTimeout(() => {
         setCodeError('');
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -88,6 +90,9 @@ const Verification = () => {
       <>
         <CustomHeader
           leftIcon={icons.BACKARROW}
+          onPressLeftIcon={() => {
+            navigation.goBack();
+          }}
           title="Verification"
           marginBottom={hp(4)}
         />

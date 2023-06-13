@@ -24,8 +24,12 @@ type CustomHeaderProps = {
   onPressRightIcon?(): void;
   secondRightIcon?: ImageSourcePropType;
   onPressSecondRightIcon?(): void;
+  thirdRightIcon?: ImageSourcePropType;
+  onPressThirdRightIcon?(): void;
   marginTop?: number;
   marginBottom?: number;
+  pictureIcon?: ImageSourcePropType;
+  onPressPictureIcon?(): void;
 };
 
 const CustomHeader: React.FC<CustomHeaderProps> = ({
@@ -36,8 +40,12 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
   onPressRightIcon,
   secondRightIcon,
   onPressSecondRightIcon,
+  thirdRightIcon,
+  onPressThirdRightIcon,
   marginTop,
   marginBottom,
+  pictureIcon,
+  onPressPictureIcon,
 }) => {
   return (
     <View
@@ -46,10 +54,50 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
         marginTop: marginTop ? marginTop : 0,
         marginBottom: marginBottom ? marginBottom : 0,
       }}>
+      {pictureIcon ? (
+        <TouchableOpacity
+          style={styles.pictureIcon}
+          onPress={onPressPictureIcon}>
+          <Image
+            source={pictureIcon}
+            resizeMode="contain"
+            style={styles.image}
+          />
+        </TouchableOpacity>
+      ) : null}
       {leftIcon ? (
-        <View style={styles.icon}>
+        <TouchableOpacity style={styles.icon} onPress={onPressLeftIcon}>
           <Image source={leftIcon} resizeMode="contain" style={styles.image} />
-        </View>
+        </TouchableOpacity>
+      ) : null}
+      {rightIcon ? (
+        <TouchableOpacity
+          style={{...styles.rightIcon, position: 'absolute', right: wp(0)}}
+          onPress={onPressRightIcon}>
+          <Image source={rightIcon} resizeMode="contain" style={styles.image} />
+        </TouchableOpacity>
+      ) : null}
+      {secondRightIcon ? (
+        <TouchableOpacity
+          style={{...styles.rightIcon, position: 'absolute', right: wp(12)}}
+          onPress={onPressSecondRightIcon}>
+          <Image
+            source={secondRightIcon}
+            resizeMode="contain"
+            style={styles.image}
+          />
+        </TouchableOpacity>
+      ) : null}
+      {thirdRightIcon ? (
+        <TouchableOpacity
+          style={{...styles.rightIcon, position: 'absolute', right: wp(24)}}
+          onPress={onPressThirdRightIcon}>
+          <Image
+            source={thirdRightIcon}
+            resizeMode="contain"
+            style={styles.image}
+          />
+        </TouchableOpacity>
       ) : null}
       {title ? <Text style={styles.title}>{title}</Text> : null}
     </View>
@@ -63,8 +111,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginHorizontal: wp(5.7),
     alignItems: 'center',
-    // height: hp(5),
-    // backgroundColor: 'red',
+    // backgroundColor: 'blue',
   },
   title: {
     // marginRight: wp(2),
@@ -77,6 +124,14 @@ const styles = StyleSheet.create({
   icon: {
     height: hp(2.7),
     width: wp(5.8),
+  },
+  rightIcon: {
+    height: hp(4.9),
+    width: wp(10.6),
+  },
+  pictureIcon: {
+    height: hp(4),
+    width: wp(8.6),
   },
   image: {
     height: '100%',
